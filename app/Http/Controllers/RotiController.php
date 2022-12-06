@@ -11,7 +11,7 @@ class RotiController extends Controller
 {
     public function index(Request $request)
     {
-        $datas = DB::select('select * from roti');
+        $datas = DB::select('select * from roti where is_deleted = 0');
         if (!empty($request->filter)) {
             $datas =   DB::table('roti')->where('nama_roti', 'like', '%' . $request->filter . '%')
                 ->get();
@@ -78,6 +78,14 @@ class RotiController extends Controller
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
         DB::delete('DELETE FROM roti WHERE id_roti = :id_roti', ['id_roti' => $id]);
 
+        return redirect()->route('roti.index')->with('success', 'Data roti berhasil dihapus');
+    }
+
+    public function softdelete($id)
+    {
+        // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
+        DB::update('UPDATE roti SET is_deleted = 1
+        WHERE id_roti = :id_roti', ['id_roti' => $id]);
         return redirect()->route('roti.index')->with('success', 'Data roti berhasil dihapus');
     }
 }

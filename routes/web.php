@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/toko/edit/{id}', [TokoController::class, 'edit'])->name('toko.edit');
     Route::post('/toko/update/{id}', [TokoController::class, 'update'])->name('toko.update');
     Route::post('/toko/delete/{id}', [TokoController::class, 'delete'])->name('toko.delete');
+    Route::get('/toko/softDelete/{id}', [TokoController::class, 'softDelete'])->name('toko.softDelete');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -44,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/roti/edit/{id}', [RotiController::class, 'edit'])->name('roti.edit');
     Route::post('/roti/update/{id}', [RotiController::class, 'update'])->name('roti.update');
     Route::post('/roti/delete/{id}', [RotiController::class, 'delete'])->name('roti.delete');
+    Route::get('/roti/softDelete/{id}', [RotiController::class, 'softDelete'])->name('roti.softDelete');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -57,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/riwayat/edit/{id}', [RiwayatController::class, 'edit'])->name('riwayat.edit');
     Route::post('/riwayat/update/{id}', [RiwayatController::class, 'update'])->name('riwayat.update');
     Route::post('/riwayat/delete/{id}', [RiwayatController::class, 'delete'])->name('riwayat.delete');
+    Route::get('/riwayat/softDelete/{id}', [RiwayatController::class, 'softDelete'])->name('riwayat.softDelete');
 });
 Auth::routes();
 

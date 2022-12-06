@@ -43,12 +43,17 @@
                             <td>{{ $data->nama_roti }}</td>
                             <td>{{ $data->tgl_kadaluarsa }}</td>
                             <td>
-                                <a href="{{ route('roti.edit', $data->id_roti) }}" type="button" class="btn btn-info rounded-3">Ubah</a>
+                                <a href="{{ route('roti.edit', $data->id_roti) }}" type="button" class="btn btn-primary">Ubah</a>
                 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->id_roti }}">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->id_roti }}">
                                     Hapus
                                 </button>
+
+                                <!-- Button soft delete -->
+                                <a href="{{ route('roti.softDelete',$data->id_roti) }}" type="button" class="btn btn-success">
+                                Soft Delete
+                                 </a>
                 
                                 <!-- Modal -->
                                 <div class="modal fade" id="hapusModal{{ $data->id_roti }}" tabindex="-1" aria-labelledby="hapusModalLabel" aria-hidden="true">

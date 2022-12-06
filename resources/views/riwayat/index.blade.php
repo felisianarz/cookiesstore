@@ -47,12 +47,17 @@
                             <td>{{ $data->jumlah}}</td>
                             <td>{{ $data->tgl_stok}}</td>
                             <td>
-                                <a href="{{ route('riwayat.edit', $data->id_riwayat_produksi) }}" type="button" class="btn btn-info rounded-3">Ubah</a>
+                                <a href="{{ route('riwayat.edit', $data->id_riwayat_produksi) }}" type="button" class="btn btn-primary">Ubah</a>
                 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->id_riwayat_produksi }}">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->id_riwayat_produksi }}">
                                     Hapus
                                 </button>
+
+                                <!-- Button soft delete -->
+                                <a href="{{ route('riwayat.softDelete',$data->id_riwayat_produksi) }}" type="button" class="btn btn-success">
+                                Soft Delete
+                                 </a>
                 
                                 <!-- Modal -->
                                 <div class="modal fade" id="hapusModal{{ $data->id_riwayat_produksi }}" tabindex="-1" aria-labelledby="hapusModalLabel" aria-hidden="true">

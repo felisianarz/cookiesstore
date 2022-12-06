@@ -12,7 +12,7 @@ class RiwayatController extends Controller
 {
     public function index(Request $request)
     {
-        $datas = DB::select('select * from riwayat_produksi');
+        $datas = DB::select('select * from riwayat_produksi where is_deleted = 0');
         if (!empty($request->filter)) {
             $datas =   DB::table('riwayat_produksi')->where('id_riwayat_produksi', 'like', '%' . $request->filter . '%')
                 ->get();
@@ -89,5 +89,13 @@ class RiwayatController extends Controller
         DB::delete('DELETE FROM riwayat_produksi WHERE id_riwayat_produksi = :id_riwayat_produksi', ['id_riwayat_produksi' => $id]);
 
         return redirect()->route('riwayat.index')->with('success', 'Data riwayat berhasil dihapus');
+    }
+
+    public function softdelete($id)
+    {
+        // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
+        DB::update('UPDATE riwayat_produksi SET is_deleted = 1
+        WHERE id_riwayat_produksi = :id_riwayat_produksi', ['id_riwayat_produksi' => $id]);
+        return redirect()->route('riwayat.index')->with('success', 'Data riawayat berhasil dihapus');
     }
 }

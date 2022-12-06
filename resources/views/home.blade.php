@@ -19,10 +19,10 @@
                 </div>
                 <div class="card-body">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a class="btn btn-outline-primary" role="button" aria-disabled="true" href="{{ route('toko.index') }}">Toko</a>
-                        <a class="btn btn-outline-primary" role="button" aria-disabled="true" href="{{ route('roti.index') }}">Roti</a>
-                        <a class="btn btn-outline-primary" role="button" aria-disabled="true" href="{{ route('pegawai.index') }}">Pegawai</a>
-                        <a class="btn btn-outline-primary" role="button" aria-disabled="true" href="{{ route('riwayat.index') }}">Riwayat</a>
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ route('toko.index') }}">Toko</a>
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ route('roti.index') }}">Roti</a>
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ route('pegawai.index') }}">Pegawai</a>
+                        <a class="btn btn-primary" role="button" aria-disabled="true" href="{{ route('riwayat.index') }}">Riwayat</a>
                       </div>
                 </div>
             </div>

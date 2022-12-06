@@ -43,12 +43,18 @@
                             <td>{{ $data->cabang_toko }}</td>
                             <td>{{ $data->alamat }}</td>
                             <td>
-                                <a href="{{ route('toko.edit', $data->id_toko) }}" type="button" class="btn btn-info rounded-3">Ubah</a>
+                                <a href="{{ route('toko.edit', $data->id_toko) }}" type="button" class="btn btn-primary">Change</a>
                 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->id_toko }}">
-                                    Hapus
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->id_toko }}">
+                                    Delete
                                 </button>
+
+                                <!-- Button soft delete -->
+                                <a href="{{ route('toko.softDelete',$data->id_toko) }}" type="button" class="btn btn-success">
+                                Soft Delete
+                                 </a>
+
                 
                                 <!-- Modal -->
                                 <div class="modal fade" id="hapusModal{{ $data->id_toko }}" tabindex="-1" aria-labelledby="hapusModalLabel" aria-hidden="true">

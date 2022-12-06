@@ -11,7 +11,8 @@ class TokoController extends Controller
 {
     public function index(Request $request)
     {
-        $datas = DB::select('select * from toko');
+        $datas = DB::select('select * from toko where is_deleted = 0');
+
         if (!empty($request->filter)) {
             $datas =   DB::table('toko')->where('cabang_toko', 'like', '%' . $request->filter . '%')
                 ->get();
@@ -81,6 +82,12 @@ class TokoController extends Controller
         return redirect()->route('toko.index')->with('success', 'Data toko berhasil dihapus');
     }
 
-    
+    public function softdelete($id)
+    {
+        // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
+        DB::update('UPDATE toko SET is_deleted = 1
+        WHERE id_toko = :id_toko', ['id_toko' => $id]);
+        return redirect()->route('toko.index')->with('success', 'Data Surat masuk berhasil dihapus');
+    }
 
 }
